@@ -9,7 +9,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.15)
 PROJECT (Cryptanalysis)
 ENABLE_LANGUAGE(C CXX)
 
-option(GTEST "Enable Google Test" OFF)
+option(GTEST "Enable Google Test" ON)
 
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 SET(CMAKE_COLOR_MAKEFILE ON)
@@ -38,12 +38,6 @@ endif()
 if(GTEST)
 add_executable(test_runner unittest.cpp)
 target_link_libraries(test_runner GTest::gtest)
-
-add_custom_command(
-  TARGET test_runner POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy
-          ${CMAKE_CURRENT_SOURCE_DIR}/data/*
-          ${CMAKE_CURRENT_BINARY_DIR}/)
 
 else()
 add_executable(main main.cpp)
