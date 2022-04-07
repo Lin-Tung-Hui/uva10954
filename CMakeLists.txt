@@ -39,6 +39,12 @@ if(GTEST)
 add_executable(test_runner unittest.cpp)
 target_link_libraries(test_runner GTest::gtest)
 
+add_custom_command(
+  TARGET test_runner POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy
+          ${CMAKE_CURRENT_SOURCE_DIR}/data/*
+          ${CMAKE_CURRENT_BINARY_DIR}/)
+
 else()
 add_executable(main main.cpp)
 endif()

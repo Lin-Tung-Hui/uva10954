@@ -54,3 +54,16 @@ TEST(add_all, test_2)
               "499990\n",
               oss.str());
 }
+
+TEST(add_all, test_uDebug)
+{
+    std::ifstream input_file("test_uDebug.txt");
+
+    std::ostringstream oss;
+
+    add_all(input_file, oss);
+
+    EXPECT_EQ("3034495442\n"
+              "6180738192\n",
+              oss.str());
+}
