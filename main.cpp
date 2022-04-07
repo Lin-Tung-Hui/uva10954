@@ -27,7 +27,7 @@ int add_all(std::istream &is, std::ostream &os)
     std::getline(is, line);
     int number = std::stoi(line);
 
-    while ((number >= 2) && (number < 10000)) {
+    while ((number >= 2) && (number < 100000)) {
 
         std::getline(is, line);
         std::stringstream lineStream(line);
